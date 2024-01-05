@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sidsproject/Screens/WelcomePage.dart';
-import 'package:sidsproject/Screens/WorkCategory.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
