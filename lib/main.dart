@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sidsproject/Screens/MyHomePage.dart';
+import 'package:sidsproject/Screens/WelcomePage.dart';
+import 'package:sidsproject/Screens/WorkCategory.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.blue),
-      home: const MyHomePage(),
+      home: const WelcomePage(),
     );
   }
 }
