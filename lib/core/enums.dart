@@ -1,0 +1,16 @@
+enum WorkCategories {
+  carpenter,
+  driver,
+  housekeeper,
+  cook,
+  personalTrainer,
+  gardener,
+  mechanic,
+  petGrooming,
+  makeUpArtist,
+  groceryDelivery,
+  pCTechnition,
+  aCTechnition,
+  photographer,
+  lightsAndSounds,
+}

@@ -72,47 +72,36 @@ class _WorkCategoryPageState extends State<WorkCategoryPage> {
         children: [
           Expanded(
             child: ListView.separated(
-              itemCount: workCategories.length,
-              itemBuilder: (context, index) {
-                final WorkCategory = workCategories[index];
+                itemCount: workCategories.length,
+                itemBuilder: (context, index) {
+                  final WorkCategory = workCategories[index];
 
-                return Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 15),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color:
-                            const Color.fromARGB(255, 0, 0, 0).withOpacity(0.4),
-                        blurRadius: 10,
-                        spreadRadius: 2,
-                        offset: const Offset(0, 5),
-                      ),
-                    ],
-                  ),
-                  child: ListTile(
-                    minVerticalPadding: 30,
-                    dense: false,
-                    leading: const CircleAvatar(
-                      backgroundColor: Color.fromARGB(255, 58, 94, 173),
-                      radius: 30,
-                      child: Icon(Icons.work),
-                    ),
-                    title: Text(
-                      WorkCategory,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Card(
+                      color: Colors.white70,
+                      child: ListTile(
+                        minVerticalPadding: 30,
+                        dense: false,
+                        leading: const CircleAvatar(
+                          backgroundColor: Color.fromARGB(255, 58, 94, 173),
+                          radius: 30,
+                          child: Icon(Icons.work),
+                        ),
+                        title: Text(
+                          WorkCategory,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                );
-              },
-              separatorBuilder: (context, index) => const Divider(
-                height: 18,
-              ),
-            ),
+                  );
+                },
+                separatorBuilder: (context, index) => const SizedBox(
+                      height: 6,
+                    )),
           ),
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sidsproject/Screens/Loginpage.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -27,7 +28,10 @@ class WelcomePage extends StatelessWidget {
                 child: SizedBox(height: 600.0),
               )),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const SignInPage()));
+                },
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(200, 60),
                   backgroundColor: Colors.red,
