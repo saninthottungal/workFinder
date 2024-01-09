@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,19 +22,19 @@ class ScreenHome extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 80), // Increased top padding
+        padding: const EdgeInsets.only(top: 80), 
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 400), // Adjusted spacing for the buttons
+              const SizedBox(height: 400), 
               SizedBox(
                 height: 50,
                 width: 330,
                 child: MaterialButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/workcategory');
-                  }, // Handle button functionality here
+                  }, 
                   color: Colors.red,
                   child: const Text(
                     'Find a Worker',
@@ -45,7 +46,7 @@ class ScreenHome extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 20), // Spacing between buttons
+              const SizedBox(height: 20),
               SizedBox(
                 height: 50,
                 width: 330,

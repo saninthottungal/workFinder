@@ -97,15 +97,15 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
               controller: _wageController,
               decoration: InputDecoration(
                 labelText: 'Wage',
-                suffixText: '/day', // Automatically append "/day"
+                suffixText: '/day', 
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
               ),
-              keyboardType: TextInputType.number, // Restrict input to numbers
+              keyboardType: TextInputType.number, 
               inputFormatters: [
                 FilteringTextInputFormatter
-                    .digitsOnly, // Enforce number-only input
+                    .digitsOnly, 
               ],
             ),
             const SizedBox(height: 16),

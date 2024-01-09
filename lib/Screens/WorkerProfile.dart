@@ -27,7 +27,6 @@ class ScreenWorkerProfile extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Assuming you have the user data available
               Container(
                 height: 60,
                 width: 350,
@@ -100,7 +99,6 @@ class ScreenWorkerProfile extends StatelessWidget {
               const SizedBox(height: 16),
               TextButton(
                 onPressed: () {
-                  // Implement edit functionality here (e.g., navigate to edit screen, open a dialog)
                   print('Editing profile...');
                 },
                 child: const Text(

@@ -24,9 +24,11 @@ class ScreenSplash extends StatelessWidget {
                   child: Padding(
                 padding: EdgeInsets.all(8.0),
                 child: SizedBox(height: 600.0),
-              )),
+              ),
+              ),
               ElevatedButton(
-                onPressed: () {Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+                onPressed: () {
+                  Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
                 },
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(200, 60),
@@ -37,7 +39,8 @@ class ScreenSplash extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w900,
-                      color: Colors.white),
+                      color: Colors.white,
+                      ),
                 ),
               ),
             ],
