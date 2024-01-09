@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class WorkCategoryPage extends StatefulWidget {
-  const WorkCategoryPage({super.key});
+class ScreenWorkCategory extends StatefulWidget {
+  const ScreenWorkCategory({super.key});
 
   @override
-  State<WorkCategoryPage> createState() => _WorkCategoryPageState();
+  State<ScreenWorkCategory> createState() => _ScreenWorkCategoryState();
 }
 
-class _WorkCategoryPageState extends State<WorkCategoryPage> {
+class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
   List<String> workCategories = [
     'Carpenter',
     'Driver',

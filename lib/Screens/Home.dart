@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class ScreenHome extends StatelessWidget {
+  const ScreenHome({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +31,9 @@ class MyHomePage extends StatelessWidget {
                 height: 50,
                 width: 330,
                 child: MaterialButton(
-                  onPressed: () {}, // Handle button functionality here
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/workcategory');
+                  }, // Handle button functionality here
                   color: Colors.red,
                   child: const Text(
                     'Find a Worker',
@@ -48,7 +50,9 @@ class MyHomePage extends StatelessWidget {
                 height: 50,
                 width: 330,
                 child: MaterialButton(
-                  onPressed: () {}, // Handle button functionality here
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/signin');
+                  },
                   color: Colors.red,
                   child: const Text(
                     'Login as Worker',

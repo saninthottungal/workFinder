@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class UserProfilePage extends StatelessWidget {
-  const UserProfilePage({super.key});
+class ScreenWorkerProfile extends StatelessWidget {
+  const ScreenWorkerProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class UserProfilePage extends StatelessWidget {
         child: AppBar(
           title: const Center(
             child: Text(
-              'USER Profile',
+              'Worker Profile',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
@@ -114,8 +114,7 @@ class UserProfilePage extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: () {
-                      // Implement functionality for the first button
-                      print('Button 1 pressed!');
+                      Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
                     },
                     child: const Text(
                       'LOGOUT',

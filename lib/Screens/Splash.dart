@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:sidsproject/Screens/Loginpage.dart';
 
-class WelcomePage extends StatelessWidget {
-  const WelcomePage({super.key});
+class ScreenSplash extends StatelessWidget {
+  const ScreenSplash({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        shadowColor: Colors.green,
         title: const Text(
-          'WorkFinder',
+          'Work Finder',
           style: TextStyle(
               fontSize: 40, fontWeight: FontWeight.bold, color: Colors.white),
         ),
@@ -28,9 +26,7 @@ class WelcomePage extends StatelessWidget {
                 child: SizedBox(height: 600.0),
               )),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const SignInPage()));
+                onPressed: () {Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
                 },
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(200, 60),

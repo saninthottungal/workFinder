@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class WorkersList extends StatefulWidget {
-  const WorkersList({super.key});
+class ScreenWorkersList extends StatefulWidget {
+  const ScreenWorkersList({super.key});
 
   @override
-  State<WorkersList> createState() => _WorkersListState();
+  State<ScreenWorkersList> createState() => _ScreenWorkersListState();
 }
 
-class _WorkersListState extends State<WorkersList> {
+class _ScreenWorkersListState extends State<ScreenWorkersList> {
   List<Map<String, dynamic>> workListings = [
     {
       'logo': Icons.work,
       'name': 'John Doe',
       'place': 'Kozhikode',
-      'wage': '+91 1234567890', // Phone number displayed here
-      'contactNumber': '₹500/day', // Wage displayed here
+      'wage': '+91 1234567890', 
+      'contactNumber': '₹500/day',
     },
     {
       'logo': Icons.work,
@@ -86,8 +86,6 @@ class _WorkersListState extends State<WorkersList> {
       'wage': '+91 4567891230',
       'contactNumber': '₹400/day',
     },
-
-    // Add more listings here with the same structure
   ];
   @override
   Widget build(BuildContext context) {
@@ -109,7 +107,6 @@ class _WorkersListState extends State<WorkersList> {
           actions: [
             PopupMenuButton<String>(
               onSelected: (value) {
-                // Handle profile and logout button presses
               },
               itemBuilder: (BuildContext context) => [
                 const PopupMenuItem<String>(

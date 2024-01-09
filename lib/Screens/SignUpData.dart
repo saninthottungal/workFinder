@@ -1,26 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+class ScreenSignUpData extends StatefulWidget {
+  const ScreenSignUpData({Key? key}) : super(key: key);
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<ScreenSignUpData> createState() => _ScreenSignUpState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _ScreenSignUpState extends State<ScreenSignUpData> {
   final _nameController = TextEditingController();
   final _phoneNumberController = TextEditingController();
   final _workDescriptionController = TextEditingController();
-  final _wageController = TextEditingController(); // Added for wage input
+  final _wageController = TextEditingController(); 
   String? _selectedWork;
 
   final _workOptions = [
-    'Web Development',
-    'Mobile Development',
-    'Graphic Design',
-    'Marketing',
-    'Other',
+    'Carpenter',
+    'Driver',
+    'House keeper',
+    'Cook',
+    'Personal Trainer',
+    'Gardener',
+    'Mechanic',
+    'Pet Grooming',
+    'MakeUp Artist',
+    'Grocery Delivary',
+    'PC Technition',
+    'AC Technition',
+    'Photographer',
+    'Lights & Sounds'
   ];
 
   @override
@@ -30,7 +39,7 @@ class _SignUpPageState extends State<SignUpPage> {
       appBar: AppBar(
         backgroundColor: Colors.red,
         title: const Text(
-          'User Profile',
+          'Worker Profile',
           style: TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold,
@@ -112,10 +121,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
             const SizedBox(height: 180),
             ElevatedButton(
-              onPressed: () {
-                // Handle saving data here
-                // Access values using controllers:
-                // _nameController.text, _phoneNumberController.text, _selectedWork, _wageController.text, _workDescriptionController.text
+              onPressed: () {Navigator.pushNamedAndRemoveUntil(context, '/workerprofile', (route) => false);
               },
               child: const Text('Save Data'),
             ),

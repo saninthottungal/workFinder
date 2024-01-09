@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key}) : super(key: key);
+class ScreenSignUpId extends StatelessWidget {
+  const ScreenSignUpId({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class SignInPage extends StatelessWidget {
         child: AppBar(
           title: const Center(
             child: Text(
-              'WorkerFinder',
+              'Sign Up',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
@@ -36,7 +36,7 @@ class SignInPage extends StatelessWidget {
                   ),
                   filled: true,
                   fillColor: Colors.grey[200],
-                  labelText: 'Enter your Email',
+                  labelText: 'Email',
                 ),
               ),
               const SizedBox(height: 30),
@@ -48,29 +48,33 @@ class SignInPage extends StatelessWidget {
                   ),
                   filled: true,
                   fillColor: Colors.grey[200],
-                  labelText: 'Enter your Password',
+                  labelText: 'Password',
                 ),
                 obscureText: true,
               ),
               const SizedBox(height: 100),
               MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/signupdata');
+                },
                 color: Colors.red,
                 minWidth: 220,
                 height: 50,
                 shape: RoundedRectangleBorder(
                   borderRadius:
-                      BorderRadius.circular(18), // Adjust corner rounding
+                      BorderRadius.circular(18),
                 ),
                 child: const Text(
-                  'Sign in',
+                  'NEXT',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
               const SizedBox(height: 5),
               TextButton(
-                onPressed: () {},
-                child: const Text('Didnt have an Account? Sign in'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/signin');
+                },
+                child: const Text('Already have an Account? Sign in'),
               ),
             ],
           ),
