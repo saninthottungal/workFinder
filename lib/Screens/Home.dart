@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ScreenHome extends StatelessWidget {
-  const ScreenHome({Key? key}) : super(key: key);
+  const ScreenHome({super.key});
   
   @override
   Widget build(BuildContext context) {

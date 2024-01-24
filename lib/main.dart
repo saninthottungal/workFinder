@@ -11,24 +11,27 @@ import 'package:sidsproject/Screens/WorkersList.dart';
 void main(List<String> args) {
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: Colors.blue,
-      ),
+          appBarTheme: const AppBarTheme(color: Color.fromARGB(233, 4, 109, 188)),
+          // primaryColor: Colors.blue,
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.black)),
       home: const ScreenSplash(),
       routes: {
-        '/home':(context) => ScreenHome(),
-        '/signin':(context) => ScreenSignIn(),
-        '/signupdata':(context) => ScreenSignUpData(),
-        '/signupid':(context) => ScreenSignUpId(),
-        '/workcategory':(context) => ScreenWorkCategory(),
-        '/workerslist':(context) => ScreenWorkersList(),
-        '/workerprofile':(context) => ScreenWorkerProfile(),      },
+        '/home': (context) => const ScreenHome(),
+        '/signin': (context) => const ScreenSignIn(),
+        '/signupdata': (context) => const ScreenSignUpData(),
+        '/signupid': (context) => const ScreenSignUpId(),
+        '/workcategory': (context) => const ScreenWorkCategory(),
+        '/workerslist': (context) => const ScreenWorkersList(),
+        '/workerprofile': (context) => const ScreenWorkerProfile(),
+      },
     );
   }
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "949401336574",
+    "project_id": "worker-finder-fa8d8",
+    "storage_bucket": "worker-finder-fa8d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949401336574:android:8d8319318f132ee818c3af",
+        "android_client_info": {
+          "package_name": "com.example.sidsproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbeAzawsR-h5huRJeBd75VlqooKaelQEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

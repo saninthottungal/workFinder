@@ -7,12 +7,15 @@ class ScreenSplash extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text(
           'Work Finder',
           style: TextStyle(
-              fontSize: 40, fontWeight: FontWeight.bold, color: Colors.white),
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
         ),
-        backgroundColor: Colors.red,
       ),
       body: Center(
         child: Padding(
@@ -21,26 +24,23 @@ class ScreenSplash extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Center(
-                  child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SizedBox(height: 600.0),
-              ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(200, 60),
-                  backgroundColor: Colors.red,
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: SizedBox(height: 600.0),
                 ),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/home', (route) => false);
+                },
                 child: const Text(
                   'Get Started',
                   style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.white,
-                      ),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.red,
+                  ),
                 ),
               ),
             ],

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ScreenSignUpData extends StatefulWidget {
-  const ScreenSignUpData({Key? key}) : super(key: key);
+  const ScreenSignUpData({super.key});
 
   @override
   State<ScreenSignUpData> createState() => _ScreenSignUpState();
