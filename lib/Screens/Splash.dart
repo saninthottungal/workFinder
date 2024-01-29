@@ -9,9 +9,9 @@ class ScreenSplash extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Work Finder',
+          'Koolie',
           style: TextStyle(
-            fontSize: 30,
+            fontSize: 28,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
@@ -37,9 +37,9 @@ class ScreenSplash extends StatelessWidget {
                 child: const Text(
                   'Get Started',
                   style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.red,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(233, 4, 109, 188),
                   ),
                 ),
               ),

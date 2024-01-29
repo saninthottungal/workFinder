@@ -19,9 +19,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          appBarTheme: const AppBarTheme(color: Color.fromARGB(233, 4, 109, 188)),
-          // primaryColor: Colors.blue,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.black)),
+          appBarTheme: const AppBarTheme(color: Color.fromARGB(233, 4, 109, 188)
+          ),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.black)
+          ),
       home: const ScreenSplash(),
       routes: {
         '/home': (context) => const ScreenHome(),

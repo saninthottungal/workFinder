@@ -35,19 +35,19 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(56),
         child: AppBar(
           title: const Center(
             child: Text(
               'WorkFinder',
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 28,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
           ),
-          backgroundColor: const Color.fromARGB(255, 209, 27, 14),
+          backgroundColor: const Color.fromARGB(233, 4, 109, 188),
           actions: [
             PopupMenuButton<String>(
               onSelected: (value) {
@@ -77,7 +77,7 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
                   final WorkCategory = workCategories[index];
 
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Card(
                       color: Colors.white70,
                       child: ListTile(

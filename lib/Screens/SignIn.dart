@@ -7,19 +7,19 @@ class ScreenSignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(70),
+        preferredSize: const Size.fromHeight(56),
         child: AppBar(
           title: const Center(
             child: Text(
               'SignIn',
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 28,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
           ),
-          backgroundColor: Colors.red,
+          backgroundColor: Color.fromARGB(233, 4, 109, 188),
         ),
       ),
       body: Padding(
