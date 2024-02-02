@@ -6,21 +6,17 @@ class ScreenWorkerProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
-        child: AppBar(
-          title: const Center(
-            child: Text(
-              'Worker Profile',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          'Profile',
+          style: TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
-          backgroundColor: const Color.fromARGB(255, 209, 27, 14),
         ),
+        backgroundColor: const Color.fromARGB(233, 4, 109, 188),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -97,22 +93,14 @@ class ScreenWorkerProfile extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              TextButton(
-                onPressed: () {
-                  print('Editing profile...');
-                },
-                child: const Text(
-                  'Edit',
-                  style: TextStyle(fontSize: 18, color: Colors.blue),
-                ),
-              ),
               const SizedBox(height: 70),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
                     onPressed: () {
-                      Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, '/home', (route) => false);
                     },
                     child: const Text(
                       'LOGOUT',

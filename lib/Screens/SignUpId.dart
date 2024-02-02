@@ -6,36 +6,31 @@ class ScreenSignUpId extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(70),
-        child: AppBar(
-          title: const Center(
-            child: Text(
-              'Sign Up',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          'SignUp',
+          style: TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
-          backgroundColor: Colors.red,
         ),
+        backgroundColor: const Color.fromARGB(233, 4, 109, 188),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 200, left: 20, right: 20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: const BorderSide(color: Colors.blue),
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  filled: true,
-                  fillColor: Colors.grey[200],
                   labelText: 'Email',
                 ),
               ),
@@ -43,38 +38,28 @@ class ScreenSignUpId extends StatelessWidget {
               TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: const BorderSide(color: Colors.blue),
+                    borderRadius: BorderRadius.circular(20),
+                    //  borderSide: const BorderSide(color: Colors.blue),
                   ),
-                  filled: true,
-                  fillColor: Colors.grey[200],
                   labelText: 'Password',
                 ),
                 obscureText: true,
               ),
-              const SizedBox(height: 100),
-              MaterialButton(
+              const SizedBox(height: 25),
+              ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/signupdata');
                 },
-                color: Colors.red,
-                minWidth: 220,
-                height: 50,
-                shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(18),
-                ),
                 child: const Text(
-                  'NEXT',
-                  style: TextStyle(color: Colors.white),
+                  'Sign Up',
                 ),
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/signin');
                 },
-                child: const Text('Already have an Account? Sign in'),
+                child: const Text('Already have an Account? Sign In'),
               ),
             ],
           ),

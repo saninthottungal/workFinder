@@ -12,7 +12,7 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
   final _nameController = TextEditingController();
   final _phoneNumberController = TextEditingController();
   final _workDescriptionController = TextEditingController();
-  final _wageController = TextEditingController(); 
+  final _wageController = TextEditingController();
   String? _selectedWork;
 
   final _workOptions = [
@@ -37,15 +37,16 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        centerTitle: true,
         title: const Text(
-          'Worker Profile',
+          'Profile Setup',
           style: TextStyle(
-            fontSize: 30,
+            fontSize: 28,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
         ),
+        backgroundColor: const Color.fromARGB(233, 4, 109, 188),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -97,15 +98,14 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
               controller: _wageController,
               decoration: InputDecoration(
                 labelText: 'Wage',
-                suffixText: '/day', 
+                suffixText: '/day',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
               ),
-              keyboardType: TextInputType.number, 
+              keyboardType: TextInputType.number,
               inputFormatters: [
-                FilteringTextInputFormatter
-                    .digitsOnly, 
+                FilteringTextInputFormatter.digitsOnly,
               ],
             ),
             const SizedBox(height: 16),
@@ -119,9 +119,11 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
               ),
               maxLines: 4,
             ),
-            const SizedBox(height: 180),
+            const SizedBox(height: 140),
             ElevatedButton(
-              onPressed: () {Navigator.pushNamedAndRemoveUntil(context, '/workerprofile', (route) => false);
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/workerprofile', (route) => false);
               },
               child: const Text('Save Data'),
             ),

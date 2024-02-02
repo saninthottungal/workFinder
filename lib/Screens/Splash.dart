@@ -9,7 +9,7 @@ class ScreenSplash extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Koolie',
+          'Coolie',
           style: TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
