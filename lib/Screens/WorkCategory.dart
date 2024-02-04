@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sidsproject/Screens/ScreenResults.dart';
 
 class ScreenWorkCategory extends StatefulWidget {
   const ScreenWorkCategory({super.key});
@@ -34,39 +35,36 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
-        child: AppBar(
-          title: const Center(
-            child: Text(
-              'WorkFinder',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+      appBar: AppBar(
+        title: const Center(
+          child: Text(
+            'WorkFinder',
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
           ),
-          backgroundColor: const Color.fromARGB(255, 209, 27, 14),
-          actions: [
-            PopupMenuButton<String>(
-              onSelected: (value) {
-                // Handle profile and logout button presses
-              },
-              itemBuilder: (BuildContext context) => [
-                const PopupMenuItem<String>(
-                  value: 'Profile',
-                  child: Text('Profile'),
-                ),
-                const PopupMenuItem<String>(
-                  value: 'LogOut',
-                  child: Text('LogOut'),
-                ),
-              ],
-              icon: const Icon(Icons.menu, color: Colors.white, size: 30),
-            ),
-          ],
         ),
+        backgroundColor: const Color.fromARGB(255, 209, 27, 14),
+        actions: [
+          PopupMenuButton<String>(
+            onSelected: (value) {
+              // Handle profile and logout button presses
+            },
+            itemBuilder: (BuildContext context) => [
+              const PopupMenuItem<String>(
+                value: 'Profile',
+                child: Text('Profile'),
+              ),
+              const PopupMenuItem<String>(
+                value: 'LogOut',
+                child: Text('LogOut'),
+              ),
+            ],
+            icon: const Icon(Icons.menu, color: Colors.white, size: 30),
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -74,13 +72,18 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
             child: ListView.separated(
                 itemCount: workCategories.length,
                 itemBuilder: (context, index) {
-                  final WorkCategory = workCategories[index];
+                  final workCategory = workCategories[index];
 
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: Card(
                       color: Colors.white70,
                       child: ListTile(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  ScreenResults(workCategory: workCategory)));
+                        },
                         minVerticalPadding: 30,
                         dense: false,
                         leading: const CircleAvatar(
@@ -89,7 +92,7 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
                           child: Icon(Icons.work),
                         ),
                         title: Text(
-                          WorkCategory,
+                          workCategory,
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
