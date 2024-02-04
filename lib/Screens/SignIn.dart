@@ -1,7 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ScreenSignIn extends StatelessWidget {
-  const ScreenSignIn({Key? key}) : super(key: key);
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  ScreenSignIn({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +33,7 @@ class ScreenSignIn extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextField(
+                controller: _emailController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -41,6 +46,9 @@ class ScreenSignIn extends StatelessWidget {
               ),
               const SizedBox(height: 30),
               TextField(
+                controller: _passwordController,
+                obscureText: true,
+                obscuringCharacter: "*",
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -50,17 +58,52 @@ class ScreenSignIn extends StatelessWidget {
                   fillColor: Colors.grey[200],
                   labelText: 'Password',
                 ),
-                obscureText: true,
               ),
               const SizedBox(height: 100),
               MaterialButton(
-                onPressed: () {},
+                onPressed: () async {
+                  final email = _emailController.text;
+                  final password = _passwordController.text;
+                  if (email.trim().isEmpty || password.trim().isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("E-mail or Password Cannot be Empty")));
+                    return;
+                  }
+                  try {
+                    await FirebaseAuth.instance.signInWithEmailAndPassword(
+                        email: email, password: password);
+                  } on FirebaseAuthException catch (e) {
+                    if (e.code == 'invalid-email') {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text("Invalid E mail")));
+                      return;
+                    } else if (e.code == 'invalid-credential') {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text("Invalid User Credentials")));
+                      return;
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text("An Unknown Error Occured")));
+                      return;
+                    }
+                  } catch (_) {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("An Unknown Error Occured")));
+                    return;
+                  }
+
+                  final sharedPref = await SharedPreferences.getInstance();
+                  sharedPref.setBool("key", true);
+
+                  //need to check if the form is filled or not???
+                  //then only redirect to Worker Profile
+                  Navigator.of(context).pushNamed("/workerprofile");
+                },
                 color: Colors.red,
                 minWidth: 220,
                 height: 50,
                 shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(18),
+                  borderRadius: BorderRadius.circular(18),
                 ),
                 child: const Text(
                   'Sign in',
@@ -72,7 +115,7 @@ class ScreenSignIn extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/signupid');
                 },
-                child: const Text('Didnt have an Account? Sign up'),
+                child: const Text('Don\'t have an Account? Sign up'),
               ),
             ],
           ),

@@ -1,7 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ScreenSignUpId extends StatelessWidget {
-  const ScreenSignUpId({Key? key}) : super(key: key);
+  final _emailController = TextEditingController();
+
+  final _passwordController = TextEditingController();
+  ScreenSignUpId({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +34,7 @@ class ScreenSignUpId extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextField(
+                controller: _emailController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -41,6 +47,8 @@ class ScreenSignUpId extends StatelessWidget {
               ),
               const SizedBox(height: 30),
               TextField(
+                obscuringCharacter: '*',
+                controller: _passwordController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -54,15 +62,53 @@ class ScreenSignUpId extends StatelessWidget {
               ),
               const SizedBox(height: 100),
               MaterialButton(
-                onPressed: () {
+                onPressed: () async {
+                  final email = _emailController.text;
+                  final password = _passwordController.text;
+                  if (email.trim().isEmpty || password.trim().isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("E-mail or Password Cannot be Empty")));
+                    return;
+                  }
+                  try {
+                    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                        email: email, password: password);
+                  } on FirebaseAuthException catch (e) {
+                    if (e.code == 'weak-password') {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content:
+                              Text("Password Must be atleast 6 Characters")));
+
+                      return;
+                    } else if (e.code == 'invalid-email') {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text("Invalid E mail")));
+
+                      return;
+                    } else if (e.code == 'email-already-in-use') {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text("E mail already in use")));
+                      return;
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text("An unknown Error Occured")));
+                      return;
+                    }
+                  } catch (_) {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("An unknown Error Occured")));
+                    return;
+                  }
+
+                  final sharedPref = await SharedPreferences.getInstance();
+                  sharedPref.setBool("key", true);
                   Navigator.pushNamed(context, '/signupdata');
                 },
                 color: Colors.red,
                 minWidth: 220,
                 height: 50,
                 shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(18),
+                  borderRadius: BorderRadius.circular(18),
                 ),
                 child: const Text(
                   'NEXT',
