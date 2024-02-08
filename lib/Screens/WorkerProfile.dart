@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sidsproject/Screens/SignUpData.dart';
 
 class ScreenWorkerProfile extends StatelessWidget {
   const ScreenWorkerProfile({super.key});
@@ -92,11 +93,20 @@ class ScreenWorkerProfile extends StatelessWidget {
                   style: TextStyle(fontSize: 18),
                 ),
               ),
-              const SizedBox(height: 16),
-              const SizedBox(height: 70),
-              Row(
+              const SizedBox(height: 20),
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const ScreenSignUpData(),
+                        ));
+                      },
+                      child: const Text("Edit")),
+                  const SizedBox(
+                    height: 35,
+                  ),
                   TextButton(
                     onPressed: () {
                       Navigator.pushNamedAndRemoveUntil(
