@@ -181,7 +181,7 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
                             "Couldn't add data, please try again later. ")));
                   }
                   Navigator.pushNamedAndRemoveUntil(
-                      context, '/workerprofile', (route) => false);
+                      context, '/workcategory', (route) => false);
                 },
                 child: const Text('Save Data'),
               ),

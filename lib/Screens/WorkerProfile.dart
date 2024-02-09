@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sidsproject/Screens/SignUpData.dart';
 
+// ignore: must_be_immutable
 class ScreenWorkerProfile extends StatelessWidget {
-  const ScreenWorkerProfile({super.key});
+  Map<String, dynamic>? worker;
+  ScreenWorkerProfile({super.key, required this.worker});
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +35,9 @@ class ScreenWorkerProfile extends StatelessWidget {
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-                child: const Text(
-                  'Name: John Doe',
-                  style: TextStyle(fontSize: 18),
+                child: Text(
+                  worker?['name'] ?? "John Doe",
+                  style: const TextStyle(fontSize: 18),
                 ),
               ),
               const SizedBox(height: 16),
@@ -46,9 +49,9 @@ class ScreenWorkerProfile extends StatelessWidget {
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-                child: const Text(
-                  'Phone Number: +1234567890',
-                  style: TextStyle(fontSize: 18),
+                child: Text(
+                  worker?['phone'] ?? '1234567890',
+                  style: const TextStyle(fontSize: 18),
                 ),
               ),
               const SizedBox(height: 16),
@@ -60,9 +63,9 @@ class ScreenWorkerProfile extends StatelessWidget {
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-                child: const Text(
-                  'Location: New York',
-                  style: TextStyle(fontSize: 18),
+                child: Text(
+                  worker?['place'] ?? 'New York',
+                  style: const TextStyle(fontSize: 18),
                 ),
               ),
               const SizedBox(height: 16),
@@ -74,9 +77,9 @@ class ScreenWorkerProfile extends StatelessWidget {
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-                child: const Text(
-                  'Wage: 100/day',
-                  style: TextStyle(fontSize: 18),
+                child: Text(
+                  '${worker?['wage']}/day',
+                  style: const TextStyle(fontSize: 18),
                 ),
               ),
               const SizedBox(height: 16),
@@ -88,9 +91,9 @@ class ScreenWorkerProfile extends StatelessWidget {
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-                child: const Text(
-                  'Description: Experienced web developer with 5+ years of experience in building dynamic and responsive websites.',
-                  style: TextStyle(fontSize: 18),
+                child: Text(
+                  worker?['description'] ?? "Professional Mechanic From West",
+                  style: const TextStyle(fontSize: 18),
                 ),
               ),
               const SizedBox(height: 20),
@@ -108,7 +111,10 @@ class ScreenWorkerProfile extends StatelessWidget {
                     height: 35,
                   ),
                   TextButton(
-                    onPressed: () {
+                    onPressed: () async {
+                      try {
+                        await FirebaseAuth.instance.signOut();
+                      } catch (_) {}
                       Navigator.pushNamedAndRemoveUntil(
                           context, '/home', (route) => false);
                     },

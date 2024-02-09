@@ -1,8 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sidsproject/Screens/WorkerProfile.dart';
 
 class ScreenSignIn extends StatelessWidget {
+  Map<String, dynamic>? thisWorker;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   ScreenSignIn({super.key});
@@ -92,12 +95,26 @@ class ScreenSignIn extends StatelessWidget {
                     return;
                   }
 
-                  final sharedPref = await SharedPreferences.getInstance();
-                  sharedPref.setBool("key", true);
+                  // final sharedPref = await SharedPreferences.getInstance();
+                  // sharedPref.setBool("key", true);
 
                   //need to check if the form is filled or not???
                   //then only redirect to Worker Profile
-                  Navigator.of(context).pushNamed("/workerprofile");
+                  final workersQuery = await FirebaseFirestore.instance
+                      .collection('Worker')
+                      .get()
+                      .then((value) => value);
+                  final workers = workersQuery.docs.map((doc) => doc.data());
+                  final userId = FirebaseAuth.instance.currentUser!.uid;
+
+                  Future.forEach(workers, (worker) {
+                    if (worker['id'] == userId) {
+                      thisWorker = worker;
+                    }
+                  });
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) =>
+                          ScreenWorkerProfile(worker: thisWorker)));
                 },
                 color: Colors.red,
                 minWidth: 220,

@@ -28,8 +28,15 @@ class ScreenResults extends StatelessWidget {
           separatorBuilder: (context, index) => const Divider(),
           itemBuilder: (context, index) {
             return ListTile(
+              leading: const CircleAvatar(
+                child: Icon(Icons.work_rounded),
+              ),
               title: Text(workersList[index]['name']),
               subtitle: Text(workersList[index]['phone']),
+              trailing: Text(
+                workersList[index]['place'],
+                style: const TextStyle(fontSize: 16),
+              ),
               // Add any other widgets or customization for each list item
             );
           },

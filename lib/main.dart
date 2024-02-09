@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         '/signupid': (context) => ScreenSignUpId(),
         '/workcategory': (context) => const ScreenWorkCategory(),
         '/workerslist': (context) => const ScreenWorkersList(),
-        '/workerprofile': (context) => const ScreenWorkerProfile(),
+        // '/workerprofile': (context) =>  ScreenWorkerProfile(),
         // 'results': (context) => ScreenResults(),
       },
     );

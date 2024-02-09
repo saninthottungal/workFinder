@@ -50,22 +50,13 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
         ),
         backgroundColor: const Color.fromARGB(255, 209, 27, 14),
         actions: [
-          PopupMenuButton<String>(
-            onSelected: (value) {
-              // Handle profile and logout button presses
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed('/signin');
             },
-            itemBuilder: (BuildContext context) => [
-              const PopupMenuItem<String>(
-                value: 'Profile',
-                child: Text('Profile'),
-              ),
-              const PopupMenuItem<String>(
-                value: 'LogOut',
-                child: Text('LogOut'),
-              ),
-            ],
-            icon: const Icon(Icons.menu, color: Colors.white, size: 30),
-          ),
+            icon: const Icon(Icons.person_2_outlined),
+            color: Colors.white,
+          )
         ],
       ),
       body: Column(
