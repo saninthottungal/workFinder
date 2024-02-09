@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -10,6 +11,7 @@ class ScreenSignUpData extends StatefulWidget {
 }
 
 class _ScreenSignUpState extends State<ScreenSignUpData> {
+  final String? workerId = FirebaseAuth.instance.currentUser?.uid;
   final _nameController = TextEditingController();
   final _phoneNumberController = TextEditingController();
   final _workDescriptionController = TextEditingController();
@@ -27,9 +29,9 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
     'Mechanic',
     'Pet Grooming',
     'MakeUp Artist',
-    'Grocery Delivary',
-    'PC Technition',
-    'AC Technition',
+    'Grocery Delivery',
+    'PC Technician',
+    'AC Technician',
     'Photographer',
     'Lights & Sounds'
   ];
@@ -140,13 +142,15 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
                   final phone = _phoneNumberController.text.trim();
                   final wage = _wageController.text.trim();
                   final description = _workDescriptionController.text.trim();
+                  final id = workerId;
 
                   if (name.isEmpty ||
                       phone.isEmpty ||
                       _selectedWork == null ||
                       wage.isEmpty ||
                       description.isEmpty ||
-                      place.isEmpty) {
+                      place.isEmpty ||
+                      id == null) {
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         content: Text("Fields cannot be empty")));
                     return;
@@ -155,6 +159,7 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
                     CollectionReference workers =
                         FirebaseFirestore.instance.collection('Worker');
                     await workers.add({
+                      "id": id,
                       "name": name,
                       "phone": phone,
                       "wage": wage,
@@ -167,7 +172,7 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         content: Text(
                             "Couldn't add data, please try again later. ")));
-                  } on PlatformException catch (e) {
+                  } on PlatformException catch (_) {
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         content: Text("Network error, try again later.")));
                   } catch (e) {

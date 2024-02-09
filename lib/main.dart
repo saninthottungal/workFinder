@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.blue,
       ),
-      home: const ScreenSignUpData(),
+      home: const ScreenSplash(),
       routes: {
         '/home': (context) => const ScreenHome(),
         '/signin': (context) => ScreenSignIn(),

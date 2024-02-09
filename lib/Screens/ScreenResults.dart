@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ScreenResults extends StatelessWidget {
-  final String workCategory;
-  final List<String> items = List.generate(50, (index) => 'Item $index');
+  List<Map<String, dynamic>> workersList;
 
-  ScreenResults({super.key, required this.workCategory});
+  ScreenResults({super.key, required this.workersList});
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +24,12 @@ class ScreenResults extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView.separated(
-          itemCount: items.length,
+          itemCount: workersList.length,
           separatorBuilder: (context, index) => const Divider(),
           itemBuilder: (context, index) {
             return ListTile(
-              title: Text(items[index]),
+              title: Text(workersList[index]['name']),
+              subtitle: Text(workersList[index]['phone']),
               // Add any other widgets or customization for each list item
             );
           },

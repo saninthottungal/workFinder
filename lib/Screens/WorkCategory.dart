@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sidsproject/Screens/ScreenResults.dart';
 
@@ -9,6 +10,7 @@ class ScreenWorkCategory extends StatefulWidget {
 }
 
 class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
+  List<Map<String, dynamic>> workersList = [];
   List<String> workCategories = [
     'Carpenter',
     'Driver',
@@ -19,9 +21,9 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
     'Mechanic',
     'Pet Grooming',
     'MakeUp Artist',
-    'Grocery Delivary',
-    'PC Technition',
-    'AC Technition',
+    'Grocery Delivery',
+    'PC Technician',
+    'AC Technician',
     'Photographer',
     'Lights & Sounds'
   ];
@@ -79,10 +81,23 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
                     child: Card(
                       color: Colors.white70,
                       child: ListTile(
-                        onTap: () {
+                        onTap: () async {
+                          final workersQuery = await FirebaseFirestore.instance
+                              .collection('Worker')
+                              .get()
+                              .then((value) => value);
+                          final workers =
+                              workersQuery.docs.map((doc) => doc.data());
+
+                          Future.forEach(workers, (worker) {
+                            if (worker['work'] == workCategory) {
+                              workersList.add(worker);
+                            }
+                          });
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  ScreenResults(workCategory: workCategory)));
+                              builder: (context) => ScreenResults(
+                                    workersList: workersList,
+                                  )));
                         },
                         minVerticalPadding: 30,
                         dense: false,
