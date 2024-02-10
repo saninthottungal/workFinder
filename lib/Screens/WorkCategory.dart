@@ -10,6 +10,7 @@ class ScreenWorkCategory extends StatefulWidget {
 }
 
 class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
+  String? workCategory;
   List<Map<String, dynamic>> workersList = [];
   List<String> workCategories = [
     'Carpenter',
@@ -31,7 +32,13 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
   @override
   void initState() {
     super.initState();
-    workCategories.sort();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    workersList = [];
+    super.dispose();
   }
 
   @override
@@ -65,26 +72,29 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
             child: ListView.separated(
                 itemCount: workCategories.length,
                 itemBuilder: (context, index) {
-                  final workCategory = workCategories[index];
-
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: Card(
                       color: Colors.white70,
                       child: ListTile(
                         onTap: () async {
+                          workersList = [];
+                          workCategory = workCategories[index];
+
                           final workersQuery = await FirebaseFirestore.instance
                               .collection('Worker')
                               .get()
                               .then((value) => value);
+
                           final workers =
                               workersQuery.docs.map((doc) => doc.data());
 
-                          Future.forEach(workers, (worker) {
+                          await Future.forEach(workers, (worker) {
                             if (worker['work'] == workCategory) {
                               workersList.add(worker);
                             }
                           });
+
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => ScreenResults(
                                     workersList: workersList,
@@ -98,7 +108,7 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
                           child: Icon(Icons.work),
                         ),
                         title: Text(
-                          workCategory,
+                          workCategories[index],
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,

@@ -5,7 +5,6 @@ import 'package:sidsproject/Screens/SignIn.dart';
 import 'package:sidsproject/Screens/SignUpData.dart';
 import 'package:sidsproject/Screens/SignUpId.dart';
 import 'package:sidsproject/Screens/Splash.dart';
-import 'package:sidsproject/Screens/WorkerProfile.dart';
 import 'package:sidsproject/Screens/WorkCategory.dart';
 import 'package:sidsproject/Screens/WorkersList.dart';
 import 'package:sidsproject/firebase_options.dart';
