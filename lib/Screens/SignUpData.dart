@@ -80,6 +80,7 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
               TextField(
                 controller: _phoneNumberController,
                 decoration: InputDecoration(
+                  prefixText: "+91 ",
                   labelText: 'Phone Number',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
@@ -153,6 +154,10 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
                       id == null) {
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         content: Text("Fields cannot be empty")));
+                    return;
+                  } else if (phone.length != 10) {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("Phone Number is not valid")));
                     return;
                   }
                   try {

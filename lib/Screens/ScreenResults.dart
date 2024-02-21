@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
 class ScreenResults extends StatefulWidget {
@@ -53,6 +54,13 @@ class _ScreenResultsState extends State<ScreenResults> {
               separatorBuilder: (context, index) => const Divider(),
               itemBuilder: (context, index) {
                 return ListTile(
+                  onTap: () async {
+                    String phone = '+91${widget.workersList[index]['phone']}';
+
+                    Uri phoneUri = Uri(scheme: 'tel', path: phone);
+
+                    await launchUrl(phoneUri);
+                  },
                   leading: const CircleAvatar(
                     child: Icon(Icons.work_rounded),
                   ),
