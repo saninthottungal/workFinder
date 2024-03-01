@@ -36,7 +36,6 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     workersList = [];
     super.dispose();
   }
@@ -47,15 +46,15 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
       appBar: AppBar(
         title: const Center(
           child: Text(
-            'WorkFinder',
+            'Worker Finder',
             style: TextStyle(
-              fontSize: 30,
+              fontSize: 26,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
           ),
         ),
-        backgroundColor: const Color.fromARGB(255, 209, 27, 14),
+        backgroundColor: const Color.fromARGB(233, 4, 109, 188),
         actions: [
           IconButton(
             onPressed: () {
@@ -73,22 +72,19 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
                 itemCount: workCategories.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Card(
-                      color: Colors.white70,
+                      color: Colors.white,
                       child: ListTile(
                         onTap: () async {
                           workersList = [];
                           workCategory = workCategories[index];
-
                           final workersQuery = await FirebaseFirestore.instance
                               .collection('Worker')
                               .get()
                               .then((value) => value);
-
                           final workers =
                               workersQuery.docs.map((doc) => doc.data());
-
                           await Future.forEach(workers, (worker) {
                             if (worker['work'] == workCategory) {
                               workersList.add(worker);
@@ -103,23 +99,25 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
                         minVerticalPadding: 30,
                         dense: false,
                         leading: const CircleAvatar(
-                          backgroundColor: Color.fromARGB(255, 58, 94, 173),
-                          radius: 30,
-                          child: Icon(Icons.work),
+                          backgroundColor: Color.fromARGB(233, 4, 109, 188),
+                          radius: 32,
+                          child: Icon(
+                            Icons.work_outline,
+                            size: 32,
+                            color: Colors.white,
+                          ),
                         ),
                         title: Text(
                           workCategories[index],
                           style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
+                              fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
                   );
                 },
                 separatorBuilder: (context, index) => const SizedBox(
-                      height: 6,
+                      height: 4,
                     )),
           ),
         ],

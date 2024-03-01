@@ -11,21 +11,18 @@ class ScreenSignUpId extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(70),
-        child: AppBar(
-          title: const Center(
-            child: Text(
-              'Sign Up',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+      appBar: AppBar(
+        title: const Center(
+          child: Text(
+            'sign up',
+            style: TextStyle(
+              fontSize: 26,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
           ),
-          backgroundColor: Colors.red,
         ),
+        backgroundColor: Color.fromARGB(233, 4, 109, 188),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -42,10 +39,19 @@ class ScreenSignUpId extends StatelessWidget {
                   ),
                   filled: true,
                   fillColor: Colors.grey[200],
-                  labelText: 'Email',
+                  labelText: 'E-mail',
+                  labelStyle: TextStyle(
+                    color: Color.fromARGB(255, 148, 148, 148),
+                    fontSize: 16,
+                    // fontWeight: FontWeight.bold,
+                  ),
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: Color.fromARGB(233, 4, 109, 188),
+                  ),
                 ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               TextField(
                 obscuringCharacter: '*',
                 controller: _passwordController,
@@ -57,6 +63,15 @@ class ScreenSignUpId extends StatelessWidget {
                   filled: true,
                   fillColor: Colors.grey[200],
                   labelText: 'Password',
+                  labelStyle: TextStyle(
+                    color: Color.fromARGB(255, 148, 148, 148),
+                    fontSize: 16,
+                    // fontWeight: FontWeight.bold,
+                  ),
+                  prefixIcon: Icon(
+                    Icons.key,
+                    color: Color.fromARGB(233, 4, 109, 188),
+                  ),
                 ),
                 obscureText: true,
               ),
@@ -104,15 +119,18 @@ class ScreenSignUpId extends StatelessWidget {
                   sharedPref.setBool("key", true);
                   Navigator.pushNamed(context, '/signupdata');
                 },
-                color: Colors.red,
-                minWidth: 220,
+                color: Color.fromARGB(233, 4, 109, 188),
+                minWidth: 150,
                 height: 50,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: const Text(
                   'NEXT',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16),
                 ),
               ),
               const SizedBox(height: 5),
@@ -120,7 +138,13 @@ class ScreenSignUpId extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/signin');
                 },
-                child: const Text('Already have an Account? Sign in'),
+                child: const Text(
+                  'Already have an Account? sign in',
+                  style: TextStyle(
+                      color: Color.fromARGB(233, 4, 109, 188),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16),
+                ),
               ),
             ],
           ),

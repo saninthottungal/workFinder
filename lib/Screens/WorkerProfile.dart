@@ -36,8 +36,9 @@ class ScreenWorkerProfile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 child: Text(
-                  worker?['name'] ?? "John Doe",
-                  style: const TextStyle(fontSize: 18),
+                  worker?['name'] ?? "Worker name",
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
               const SizedBox(height: 16),
@@ -50,8 +51,9 @@ class ScreenWorkerProfile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 child: Text(
-                  worker?['phone'] ?? '1234567890',
-                  style: const TextStyle(fontSize: 18),
+                  worker?['phone'] ?? '8157061878',
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
               const SizedBox(height: 16),
@@ -64,51 +66,58 @@ class ScreenWorkerProfile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 child: Text(
-                  worker?['place'] ?? 'New York',
-                  style: const TextStyle(fontSize: 18),
+                  worker?['place'] ?? 'Location',
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
-              const SizedBox(height: 16),
-              Container(
-                height: 60,
-                width: 350,
-                padding: const EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                child: Text(
-                  '${worker?['wage']}/day',
-                  style: const TextStyle(fontSize: 18),
-                ),
-              ),
-              const SizedBox(height: 16),
-              Container(
-                height: 200,
-                width: 350,
-                padding: const EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                child: Text(
-                  worker?['description'] ?? "Professional Mechanic From West",
-                  style: const TextStyle(fontSize: 18),
-                ),
-              ),
-              const SizedBox(height: 20),
+              // const SizedBox(height: 16),
+              // Container(
+              //   height: 60,
+              //   width: 350,
+              //   padding: const EdgeInsets.all(16.0),
+              //   decoration: BoxDecoration(
+              //     color: Colors.grey[200],
+              //     borderRadius: BorderRadius.circular(15.0),
+              //   ),
+              //   child: Text(
+              //     '${worker?['wage']}/day',
+              //     style: const TextStyle(fontSize: 18),
+              //   ),
+              // ),
+              // const SizedBox(height: 16),
+              // Container(
+              //   height: 200,
+              //   width: 350,
+              //   padding: const EdgeInsets.all(16.0),
+              //   decoration: BoxDecoration(
+              //     color: Colors.grey[200],
+              //     borderRadius: BorderRadius.circular(15.0),
+              //   ),
+              //   child: Text(
+              //     worker?['description'] ?? "Professional Mechanic From West",
+              //     style: const TextStyle(fontSize: 18),
+              //   ),
+              // ),
+              const SizedBox(height: 100),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const ScreenSignUpData(),
-                        ));
-                      },
-                      child: const Text("Edit")),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const ScreenSignUpData(),
+                      ));
+                    },
+                    child: const Text(
+                      "   Edit Profile   ",
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
                   const SizedBox(
-                    height: 35,
+                    height: 5,
                   ),
                   TextButton(
                     onPressed: () async {
@@ -119,11 +128,12 @@ class ScreenWorkerProfile extends StatelessWidget {
                           context, '/home', (route) => false);
                     },
                     child: const Text(
-                      'LOGOUT',
+                      'Logout',
                       style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.red),
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(233, 188, 4, 4),
+                      ),
                     ),
                   ),
                 ],

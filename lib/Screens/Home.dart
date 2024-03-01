@@ -10,9 +10,9 @@ class ScreenHome extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Coolie',
+          'Worker Finder',
           style: TextStyle(
-            fontSize: 28,
+            fontSize: 26,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
@@ -28,7 +28,7 @@ class ScreenHome extends StatelessWidget {
               const SizedBox(height: 400),
               SizedBox(
                 height: 50,
-                width: 330,
+                width: 310,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/workcategory');
@@ -40,7 +40,8 @@ class ScreenHome extends StatelessWidget {
                   child: const Text(
                     'Find a Worker',
                     style: TextStyle(
-                      fontSize: 26,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 255, 255, 255),
                     ),
                   ),
@@ -49,7 +50,7 @@ class ScreenHome extends StatelessWidget {
               const SizedBox(height: 20),
               SizedBox(
                 height: 50,
-                width: 330,
+                width: 310,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/signin');
@@ -61,7 +62,8 @@ class ScreenHome extends StatelessWidget {
                   child: const Text(
                     'Login as Worker',
                     style: TextStyle(
-                      fontSize: 26,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 255, 255, 255),
                     ),
                   ),

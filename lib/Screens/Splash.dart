@@ -6,17 +6,6 @@ class ScreenSplash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          'Coolie',
-          style: TextStyle(
-            fontSize: 28,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(top: 0.1, bottom: 20.0),
@@ -26,7 +15,7 @@ class ScreenSplash extends StatelessWidget {
               const Center(
                 child: Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: SizedBox(height: 600.0),
+                  child: SizedBox(height: 700.0),
                 ),
               ),
               TextButton(

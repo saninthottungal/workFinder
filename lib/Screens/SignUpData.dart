@@ -14,8 +14,8 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
   final String? workerId = FirebaseAuth.instance.currentUser?.uid;
   final _nameController = TextEditingController();
   final _phoneNumberController = TextEditingController();
-  final _workDescriptionController = TextEditingController();
-  final _wageController = TextEditingController();
+  // final _workDescriptionController = TextEditingController();
+  // final _wageController = TextEditingController();
   final _placeController = TextEditingController();
   String? _selectedWork;
 
@@ -33,7 +33,7 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
     'PC Technician',
     'AC Technician',
     'Photographer',
-    'Lights & Sounds'
+    'Lights & Sounds',
   ];
 
   @override
@@ -45,7 +45,7 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
         title: const Text(
           'Profile Setup',
           style: TextStyle(
-            fontSize: 28,
+            fontSize: 26,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
@@ -60,9 +60,14 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
               TextField(
                 controller: _nameController,
                 decoration: InputDecoration(
-                  labelText: 'Name',
+                  labelText: 'name',
+                  labelStyle: const TextStyle(
+                    fontSize: 16,
+                    color: Color.fromARGB(255, 148, 148, 148),
+                    // fontWeight: FontWeight.bold,
+                  ),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(20.0),
                   ),
                 ),
               ),
@@ -70,7 +75,12 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
               TextField(
                 controller: _placeController,
                 decoration: InputDecoration(
-                  labelText: 'Place',
+                  labelText: 'location',
+                  labelStyle: const TextStyle(
+                    fontSize: 16,
+                    color: Color.fromARGB(255, 148, 148, 148),
+                    // fontWeight: FontWeight.bold,
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
@@ -81,7 +91,12 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
                 controller: _phoneNumberController,
                 decoration: InputDecoration(
                   prefixText: "+91 ",
-                  labelText: 'Phone Number',
+                  labelText: 'phone number',
+                  labelStyle: const TextStyle(
+                    fontSize: 16,
+                    color: Color.fromARGB(255, 148, 148, 148),
+                    // fontWeight: FontWeight.bold,
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
@@ -103,53 +118,58 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
                   });
                 },
                 decoration: InputDecoration(
-                  labelText: 'Work Name',
+                  labelText: 'work name',
+                  labelStyle: const TextStyle(
+                    fontSize: 16,
+                    color: Color.fromARGB(255, 148, 148, 148),
+                    // fontWeight: FontWeight.bold,
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
-              TextField(
-                controller: _wageController,
-                decoration: InputDecoration(
-                  labelText: 'Wage',
-                  suffixText: '/day',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                ),
-                keyboardType: TextInputType.number,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-              ),
-              const SizedBox(height: 16),
-              TextField(
-                controller: _workDescriptionController,
-                decoration: InputDecoration(
-                  labelText: 'Work Description',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                ),
-                maxLines: 4,
-              ),
-              const SizedBox(height: 40),
+              // const SizedBox(height: 16),
+              // TextField(
+              //   controller: _wageController,
+              //   decoration: InputDecoration(
+              //     labelText: 'Wage',
+              //     suffixText: '/day',
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(15.0),
+              //     ),
+              //   ),
+              //   keyboardType: TextInputType.number,
+              //   inputFormatters: [
+              //     FilteringTextInputFormatter.digitsOnly,
+              //   ],
+              // ),
+              // const SizedBox(height: 16),
+              // TextField(
+              //   controller: _workDescriptionController,
+              //   decoration: InputDecoration(
+              //     labelText: 'Work Description',
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(15.0),
+              //     ),
+              //   ),
+              //   maxLines: 4,
+              // ),
+              const SizedBox(height: 50),
               ElevatedButton(
                 onPressed: () async {
                   final name = _nameController.text.trim();
                   final place = _placeController.text.trim();
                   final phone = _phoneNumberController.text.trim();
-                  final wage = _wageController.text.trim();
-                  final description = _workDescriptionController.text.trim();
+                  // final wage = _wageController.text.trim();
+                  // final description = _workDescriptionController.text.trim();
                   final id = workerId;
 
                   if (name.isEmpty ||
                       phone.isEmpty ||
                       _selectedWork == null ||
-                      wage.isEmpty ||
-                      description.isEmpty ||
+                      // wage.isEmpty ||
+                      // description.isEmpty ||
                       place.isEmpty ||
                       id == null) {
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -167,9 +187,9 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
                       "id": id,
                       "name": name,
                       "phone": phone,
-                      "wage": wage,
+                      // "wage": wage,
                       "place": place,
-                      "description": description,
+                      // "description": description,
                       "work": _selectedWork,
                     });
                   } on FirebaseException catch (_) {
@@ -188,7 +208,7 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
                   Navigator.pushNamedAndRemoveUntil(
                       context, '/workcategory', (route) => false);
                 },
-                child: const Text('Save Data'),
+                child: const Text('Create Profile'),
               ),
             ],
           ),

@@ -6,7 +6,6 @@ import 'package:sidsproject/Screens/SignUpData.dart';
 import 'package:sidsproject/Screens/SignUpId.dart';
 import 'package:sidsproject/Screens/Splash.dart';
 import 'package:sidsproject/Screens/WorkCategory.dart';
-import 'package:sidsproject/Screens/WorkersList.dart';
 import 'package:sidsproject/firebase_options.dart';
 
 void main(List<String> args) async {
@@ -22,9 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Colors.blue,
-      ),
+      theme: ThemeData(primaryColor: Color.fromARGB(233, 4, 109, 188)),
       home: const ScreenSplash(),
       routes: {
         '/home': (context) => const ScreenHome(),
@@ -32,7 +29,7 @@ class MyApp extends StatelessWidget {
         '/signupdata': (context) => const ScreenSignUpData(),
         '/signupid': (context) => ScreenSignUpId(),
         '/workcategory': (context) => const ScreenWorkCategory(),
-        '/workerslist': (context) => const ScreenWorkersList(),
+        // '/workerslist': (context) => const ScreenWorkersList(),
         // '/workerprofile': (context) =>  ScreenWorkerProfile(),
         // 'results': (context) => ScreenResults(),
       },

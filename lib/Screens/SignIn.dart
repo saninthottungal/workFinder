@@ -14,19 +14,19 @@ class ScreenSignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(70),
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
           title: const Center(
             child: Text(
-              'SignIn',
+              'sign in',
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 26,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
           ),
-          backgroundColor: Colors.red,
+          backgroundColor: Color.fromARGB(233, 4, 109, 188),
         ),
       ),
       body: Padding(
@@ -40,14 +40,26 @@ class ScreenSignIn extends StatelessWidget {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: const BorderSide(color: Colors.blue),
+                    borderSide: BorderSide(
+                      color: Color.fromARGB(255, 148, 148, 148),
+                      width: 2.0,
+                    ),
                   ),
                   filled: true,
                   fillColor: Colors.grey[200],
-                  labelText: 'Email',
+                  labelText: 'E-mail',
+                  labelStyle: TextStyle(
+                    color: Color.fromARGB(255, 148, 148, 148),
+                    fontSize: 16,
+                    // fontWeight: FontWeight.bold,
+                  ),
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: Color.fromARGB(233, 4, 109, 188),
+                  ),
                 ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               TextField(
                 controller: _passwordController,
                 obscureText: true,
@@ -55,11 +67,23 @@ class ScreenSignIn extends StatelessWidget {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: const BorderSide(color: Colors.blue),
+                    borderSide: BorderSide(
+                      color: Color.fromARGB(255, 148, 148, 148),
+                      width: 2.0,
+                    ),
                   ),
                   filled: true,
                   fillColor: Colors.grey[200],
                   labelText: 'Password',
+                  labelStyle: TextStyle(
+                    color: Color.fromARGB(255, 148, 148, 148),
+                    fontSize: 16,
+                    // fontWeight: FontWeight.bold,
+                  ),
+                  prefixIcon: Icon(
+                    Icons.key,
+                    color: Color.fromARGB(233, 4, 109, 188),
+                  ),
                 ),
               ),
               const SizedBox(height: 100),
@@ -116,15 +140,19 @@ class ScreenSignIn extends StatelessWidget {
                       builder: (context) =>
                           ScreenWorkerProfile(worker: thisWorker)));
                 },
-                color: Colors.red,
-                minWidth: 220,
+                color: Color.fromARGB(233, 4, 109, 188),
+                minWidth: 150,
                 height: 50,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: const Text(
-                  'Sign in',
-                  style: TextStyle(color: Colors.white),
+                  'sign in',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               const SizedBox(height: 5),
@@ -132,7 +160,14 @@ class ScreenSignIn extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/signupid');
                 },
-                child: const Text('Don\'t have an Account? Sign up'),
+                child: const Text(
+                  'New to Worker Finder? Sign up',
+                  style: TextStyle(
+                    color: Color.fromARGB(233, 4, 109, 188),
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ],
           ),
