@@ -17,6 +17,7 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
     'Driver',
     'House keeper',
     'Cook',
+    'chef'
     'Personal Trainer',
     'Gardener',
     'Mechanic',
