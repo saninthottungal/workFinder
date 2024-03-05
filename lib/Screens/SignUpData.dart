@@ -23,7 +23,7 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
     'Carpenter',
     'Driver',
     'House keeper',
-    'Cook',
+    'Chef',
     'Personal Trainer',
     'Gardener',
     'Mechanic',
@@ -129,42 +129,13 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
                   ),
                 ),
               ),
-              // const SizedBox(height: 16),
-              // TextField(
-              //   controller: _wageController,
-              //   decoration: InputDecoration(
-              //     labelText: 'Wage',
-              //     suffixText: '/day',
-              //     border: OutlineInputBorder(
-              //       borderRadius: BorderRadius.circular(15.0),
-              //     ),
-              //   ),
-              //   keyboardType: TextInputType.number,
-              //   inputFormatters: [
-              //     FilteringTextInputFormatter.digitsOnly,
-              //   ],
-              // ),
-              // const SizedBox(height: 16),
-              // TextField(
-              //   controller: _workDescriptionController,
-              //   decoration: InputDecoration(
-              //     labelText: 'Work Description',
-              //     border: OutlineInputBorder(
-              //       borderRadius: BorderRadius.circular(15.0),
-              //     ),
-              //   ),
-              //   maxLines: 4,
-              // ),
               const SizedBox(height: 50),
               ElevatedButton(
                 onPressed: () async {
                   final name = _nameController.text.trim();
                   final place = _placeController.text.trim();
                   final phone = _phoneNumberController.text.trim();
-                  // final wage = _wageController.text.trim();
-                  // final description = _workDescriptionController.text.trim();
                   final id = workerId;
-
                   if (name.isEmpty ||
                       phone.isEmpty ||
                       _selectedWork == null ||

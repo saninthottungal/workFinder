@@ -20,12 +20,19 @@ class ScreenHome extends StatelessWidget {
         backgroundColor: const Color.fromARGB(233, 4, 109, 188),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 80),
+        padding: const EdgeInsets.only(top: 20),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 400),
+              const SizedBox(height: 50.0),
+              Container(
+                height: 300,
+                width: 300,
+                child: Image.asset(
+                    'C:/Users/ASUS/OneDrive/Desktop/workFinder/lib/Assets/img/logo.jpg'), // Replace with your image
+              ),
+              const SizedBox(height: 150.0),
               SizedBox(
                 height: 50,
                 width: 310,

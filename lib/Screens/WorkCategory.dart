@@ -16,8 +16,7 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
     'Carpenter',
     'Driver',
     'House keeper',
-    'Cook',
-    'chef'
+    'Chef',
     'Personal Trainer',
     'Gardener',
     'Mechanic',
@@ -70,56 +69,57 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
         children: [
           Expanded(
             child: ListView.separated(
-                itemCount: workCategories.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Card(
-                      color: Colors.white,
-                      child: ListTile(
-                        onTap: () async {
-                          workersList = [];
-                          workCategory = workCategories[index];
-                          final workersQuery = await FirebaseFirestore.instance
-                              .collection('Worker')
-                              .get()
-                              .then((value) => value);
-                          final workers =
-                              workersQuery.docs.map((doc) => doc.data());
-                          await Future.forEach(workers, (worker) {
-                            if (worker['work'] == workCategory) {
-                              workersList.add(worker);
-                            }
-                          });
+              itemCount: workCategories.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Card(
+                    color: Colors.white,
+                    child: ListTile(
+                      onTap: () async {
+                        workersList = [];
+                        workCategory = workCategories[index];
+                        final workersQuery = await FirebaseFirestore.instance
+                            .collection('Worker')
+                            .get()
+                            .then((value) => value);
+                        final workers =
+                            workersQuery.docs.map((doc) => doc.data());
+                        await Future.forEach(workers, (worker) {
+                          if (worker['work'] == workCategory) {
+                            workersList.add(worker);
+                          }
+                        });
 
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => ScreenResults(
-                                    workersList: workersList,
-                                  )));
-                        },
-                        minVerticalPadding: 30,
-                        dense: false,
-                        leading: const CircleAvatar(
-                          backgroundColor: Color.fromARGB(233, 4, 109, 188),
-                          radius: 32,
-                          child: Icon(
-                            Icons.work_outline,
-                            size: 32,
-                            color: Colors.white,
-                          ),
-                        ),
-                        title: Text(
-                          workCategories[index],
-                          style: const TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ScreenResults(
+                                  workersList: workersList,
+                                )));
+                      },
+                      minVerticalPadding: 30,
+                      dense: false,
+                      leading: const CircleAvatar(
+                        backgroundColor: Color.fromARGB(233, 4, 109, 188),
+                        radius: 32,
+                        child: Icon(
+                          Icons.work_outline,
+                          size: 32,
+                          color: Colors.white,
                         ),
                       ),
+                      title: Text(
+                        workCategories[index],
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
                     ),
-                  );
-                },
-                separatorBuilder: (context, index) => const SizedBox(
-                      height: 4,
-                    )),
+                  ),
+                );
+              },
+              separatorBuilder: (context, index) => const SizedBox(
+                height: 4,
+              ),
+            ),
           ),
         ],
       ),

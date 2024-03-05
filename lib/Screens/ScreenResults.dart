@@ -65,23 +65,23 @@ class _ScreenResultsState extends State<ScreenResults> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          CircleAvatar(
-                            backgroundColor: Color.fromARGB(233, 4, 109, 188),
+                         const CircleAvatar(
+                             backgroundColor: Color.fromARGB(233, 4, 109, 188),
                             radius: 32,
                             child: Icon(
                               Icons.person_outlined,
-                              size: 40,
+                              size: 32,
                               color: Colors.white,
                             ),
                           ),
-                          SizedBox(width: 26),
+                          const SizedBox(width: 26),
                           Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   widget.workersList[index]['name'],
-                                  style: TextStyle(
+                                  style:const TextStyle(
                                     fontSize: 17,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
@@ -89,19 +89,19 @@ class _ScreenResultsState extends State<ScreenResults> {
                                 ),
                                 Text(
                                   widget.workersList[index]['phone'],
-                                  style: TextStyle(
+                                  style:const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: const Color.fromARGB(
+                                    color: Color.fromARGB(
                                         255, 126, 126, 126),
                                   ),
                                 ),
                                 Text(
                                   widget.workersList[index]['place'],
-                                  style: TextStyle(
+                                  style:const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: const Color.fromARGB(
+                                    color: Color.fromARGB(
                                         255, 126, 126, 126),
                                   ),
                                 ),
@@ -109,10 +109,10 @@ class _ScreenResultsState extends State<ScreenResults> {
                             ),
                           ),
                           IconButton(
-                            icon: Icon(
+                            icon:const Icon(
                               Icons.call,
                               size: 32,
-                              color: const Color.fromARGB(255, 0, 164, 5),
+                              color: Color.fromARGB(255, 0, 164, 5),
                             ),
                             onPressed: () async {
                               String phone =
@@ -125,7 +125,7 @@ class _ScreenResultsState extends State<ScreenResults> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 4), // Adjust the height as needed
+                 const SizedBox(height: 4),
                 ],
               );
             },

@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sidsproject/Screens/SignUpData.dart';
 
-// ignore: must_be_immutable
 class ScreenWorkerProfile extends StatelessWidget {
   Map<String, dynamic>? worker;
   ScreenWorkerProfile({super.key, required this.worker});
@@ -13,7 +12,7 @@ class ScreenWorkerProfile extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Profile',
+          'Worker Profile',
           style: TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
@@ -29,7 +28,7 @@ class ScreenWorkerProfile extends StatelessWidget {
             children: [
               Container(
                 height: 60,
-                width: 350,
+                width: 400,
                 padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
@@ -71,34 +70,6 @@ class ScreenWorkerProfile extends StatelessWidget {
                       fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
-              // const SizedBox(height: 16),
-              // Container(
-              //   height: 60,
-              //   width: 350,
-              //   padding: const EdgeInsets.all(16.0),
-              //   decoration: BoxDecoration(
-              //     color: Colors.grey[200],
-              //     borderRadius: BorderRadius.circular(15.0),
-              //   ),
-              //   child: Text(
-              //     '${worker?['wage']}/day',
-              //     style: const TextStyle(fontSize: 18),
-              //   ),
-              // ),
-              // const SizedBox(height: 16),
-              // Container(
-              //   height: 200,
-              //   width: 350,
-              //   padding: const EdgeInsets.all(16.0),
-              //   decoration: BoxDecoration(
-              //     color: Colors.grey[200],
-              //     borderRadius: BorderRadius.circular(15.0),
-              //   ),
-              //   child: Text(
-              //     worker?['description'] ?? "Professional Mechanic From West",
-              //     style: const TextStyle(fontSize: 18),
-              //   ),
-              // ),
               const SizedBox(height: 100),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,

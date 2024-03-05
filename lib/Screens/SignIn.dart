@@ -1,18 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sidsproject/Screens/WorkerProfile.dart';
 
 class ScreenSignIn extends StatelessWidget {
   Map<String, dynamic>? thisWorker;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+
   ScreenSignIn({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
@@ -26,7 +27,7 @@ class ScreenSignIn extends StatelessWidget {
               ),
             ),
           ),
-          backgroundColor: Color.fromARGB(233, 4, 109, 188),
+          backgroundColor: const Color.fromARGB(233, 4, 109, 188),
         ),
       ),
       body: Padding(
@@ -35,23 +36,23 @@ class ScreenSignIn extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 50.0),
+              Container(
+                height: 200,
+                width: 200,
+                child: Image.asset(
+                    'C:/Users/ASUS/OneDrive/Desktop/workFinder/lib/Assets/img/logo.jpg'), // Replace with your image
+              ),
+              const SizedBox(height: 60.0),
               TextField(
                 controller: _emailController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(255, 148, 148, 148),
-                      width: 2.0,
-                    ),
-                  ),
+                decoration: const InputDecoration(
                   filled: true,
-                  fillColor: Colors.grey[200],
+                  fillColor: Colors.white,
                   labelText: 'E-mail',
                   labelStyle: TextStyle(
                     color: Color.fromARGB(255, 148, 148, 148),
                     fontSize: 16,
-                    // fontWeight: FontWeight.bold,
                   ),
                   prefixIcon: Icon(
                     Icons.email,
@@ -64,21 +65,13 @@ class ScreenSignIn extends StatelessWidget {
                 controller: _passwordController,
                 obscureText: true,
                 obscuringCharacter: "*",
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(255, 148, 148, 148),
-                      width: 2.0,
-                    ),
-                  ),
+                decoration: const InputDecoration(
                   filled: true,
-                  fillColor: Colors.grey[200],
+                  fillColor: Colors.white,
                   labelText: 'Password',
                   labelStyle: TextStyle(
                     color: Color.fromARGB(255, 148, 148, 148),
                     fontSize: 16,
-                    // fontWeight: FontWeight.bold,
                   ),
                   prefixIcon: Icon(
                     Icons.key,
@@ -118,12 +111,6 @@ class ScreenSignIn extends StatelessWidget {
                         content: Text("An Unknown Error Occured")));
                     return;
                   }
-
-                  // final sharedPref = await SharedPreferences.getInstance();
-                  // sharedPref.setBool("key", true);
-
-                  //need to check if the form is filled or not???
-                  //then only redirect to Worker Profile
                   final workersQuery = await FirebaseFirestore.instance
                       .collection('Worker')
                       .get()
@@ -140,7 +127,7 @@ class ScreenSignIn extends StatelessWidget {
                       builder: (context) =>
                           ScreenWorkerProfile(worker: thisWorker)));
                 },
-                color: Color.fromARGB(233, 4, 109, 188),
+                color: const Color.fromARGB(233, 4, 109, 188),
                 minWidth: 150,
                 height: 50,
                 shape: RoundedRectangleBorder(

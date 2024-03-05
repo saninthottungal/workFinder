@@ -11,6 +11,7 @@ class ScreenSignUpId extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Center(
           child: Text(
@@ -30,20 +31,25 @@ class ScreenSignUpId extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // Add image container
+              const SizedBox(height: 50.0),
+              Container(
+                height: 200,
+                width: 200,
+                child: Image.asset(
+                    'C:/Users/ASUS/OneDrive/Desktop/workFinder/lib/Assets/img/logo.jpg'), // Replace with your image
+              ),
+              const SizedBox(height: 60.0),
+              // Existing email and password fields
               TextField(
                 controller: _emailController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: const BorderSide(color: Colors.blue),
-                  ),
+                decoration: const InputDecoration(
                   filled: true,
-                  fillColor: Colors.grey[200],
+                  fillColor: Colors.white,
                   labelText: 'E-mail',
                   labelStyle: TextStyle(
                     color: Color.fromARGB(255, 148, 148, 148),
                     fontSize: 16,
-                    // fontWeight: FontWeight.bold,
                   ),
                   prefixIcon: Icon(
                     Icons.email,
@@ -55,18 +61,13 @@ class ScreenSignUpId extends StatelessWidget {
               TextField(
                 obscuringCharacter: '*',
                 controller: _passwordController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: const BorderSide(color: Colors.blue),
-                  ),
+                decoration: const InputDecoration(
                   filled: true,
-                  fillColor: Colors.grey[200],
+                  fillColor: Colors.white,
                   labelText: 'Password',
                   labelStyle: TextStyle(
                     color: Color.fromARGB(255, 148, 148, 148),
                     fontSize: 16,
-                    // fontWeight: FontWeight.bold,
                   ),
                   prefixIcon: Icon(
                     Icons.key,
@@ -119,14 +120,14 @@ class ScreenSignUpId extends StatelessWidget {
                   sharedPref.setBool("key", true);
                   Navigator.pushNamed(context, '/signupdata');
                 },
-                color: Color.fromARGB(233, 4, 109, 188),
+                color: const Color.fromARGB(233, 4, 109, 188),
                 minWidth: 150,
                 height: 50,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: const Text(
-                  'NEXT',
+                  'sign up',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

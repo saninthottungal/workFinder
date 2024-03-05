@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primaryColor: Color.fromARGB(233, 4, 109, 188)),
+      theme: ThemeData(primaryColor: const Color.fromARGB(233, 4, 109, 188)),
       home: const ScreenSplash(),
       routes: {
         '/home': (context) => const ScreenHome(),
@@ -29,9 +29,6 @@ class MyApp extends StatelessWidget {
         '/signupdata': (context) => const ScreenSignUpData(),
         '/signupid': (context) => ScreenSignUpId(),
         '/workcategory': (context) => const ScreenWorkCategory(),
-        // '/workerslist': (context) => const ScreenWorkersList(),
-        // '/workerprofile': (context) =>  ScreenWorkerProfile(),
-        // 'results': (context) => ScreenResults(),
       },
     );
   }
