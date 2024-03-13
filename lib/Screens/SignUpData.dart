@@ -163,7 +163,6 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
                           await collectionRef.where('id', isEqualTo: id).get();
                       final results = resultReference.docs;
                       Future.forEach(results, (result) {
-                        print(result);
                         result.reference.delete();
                       });
                     }
