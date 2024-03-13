@@ -70,6 +70,21 @@ class ScreenWorkerProfile extends StatelessWidget {
                       fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
+              SizedBox(height: 16),
+              Container(
+                height: 60,
+                width: 350,
+                padding: const EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                child: Text(
+                  worker?['work'] ?? 'Category',
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
               const SizedBox(height: 100),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
