@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:sidsproject/Providers/WorkerProvider.dart';
 import 'package:sidsproject/Screens/Home.dart';
 import 'package:sidsproject/Screens/SignIn.dart';
-import 'package:sidsproject/Screens/SignUpData.dart';
+
 import 'package:sidsproject/Screens/SignUpId.dart';
 import 'package:sidsproject/Screens/Splash.dart';
 import 'package:sidsproject/Screens/WorkCategory.dart';
@@ -32,7 +32,6 @@ class MyApp extends StatelessWidget {
         routes: {
           '/home': (context) => const ScreenHome(),
           '/signin': (context) => ScreenSignIn(),
-          '/signupdata': (context) => const ScreenSignUpData(),
           '/signupid': (context) => ScreenSignUpId(),
           '/workcategory': (context) => const ScreenWorkCategory(),
         },

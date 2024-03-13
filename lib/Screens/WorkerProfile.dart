@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sidsproject/Screens/SignUpData.dart';
 
+// ignore: must_be_immutable
 class ScreenWorkerProfile extends StatelessWidget {
   Map<String, dynamic>? worker;
   ScreenWorkerProfile({super.key, required this.worker});
@@ -70,7 +71,7 @@ class ScreenWorkerProfile extends StatelessWidget {
                       fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
                 height: 60,
                 width: 350,
@@ -92,7 +93,7 @@ class ScreenWorkerProfile extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const ScreenSignUpData(),
+                        builder: (context) => ScreenSignUpData(worker: worker),
                       ));
                     },
                     child: const Text(

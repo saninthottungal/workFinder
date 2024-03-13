@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sidsproject/Providers/WorkerProvider.dart';
@@ -85,7 +84,6 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
                         final workers =
                             Provider.of<WorkerProvider>(context, listen: false)
                                 .workersList;
-                        print(workers);
 
                         await Future.forEach(workers, (worker) {
                           if (worker['work'] == workCategory) {

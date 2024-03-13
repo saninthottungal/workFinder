@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:sidsproject/Screens/WorkerProfile.dart';
 
+// ignore: must_be_immutable
 class ScreenSignIn extends StatelessWidget {
   Map<String, dynamic>? thisWorker;
   final _emailController = TextEditingController();
@@ -37,7 +39,7 @@ class ScreenSignIn extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 50.0),
-              Container(
+              SizedBox(
                 height: 200,
                 width: 200,
                 child: Image.asset('assets/img/logo.jpg'),

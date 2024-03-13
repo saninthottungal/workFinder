@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sidsproject/Screens/SignUpData.dart';
 
 class ScreenSignUpId extends StatelessWidget {
   final _emailController = TextEditingController();
@@ -23,7 +24,7 @@ class ScreenSignUpId extends StatelessWidget {
             ),
           ),
         ),
-        backgroundColor: Color.fromARGB(233, 4, 109, 188),
+        backgroundColor: const Color.fromARGB(233, 4, 109, 188),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -33,7 +34,7 @@ class ScreenSignUpId extends StatelessWidget {
             children: [
               // Add image container
               const SizedBox(height: 50.0),
-              Container(
+              SizedBox(
                 height: 200,
                 width: 200,
                 child: Image.asset(
@@ -118,7 +119,8 @@ class ScreenSignUpId extends StatelessWidget {
 
                   final sharedPref = await SharedPreferences.getInstance();
                   sharedPref.setBool("key", true);
-                  Navigator.pushNamed(context, '/signupdata');
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ScreenSignUpData()));
                 },
                 color: const Color.fromARGB(233, 4, 109, 188),
                 minWidth: 150,

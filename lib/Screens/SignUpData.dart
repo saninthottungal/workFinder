@@ -2,9 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:sidsproject/Providers/WorkerProvider.dart';
 
 class ScreenSignUpData extends StatefulWidget {
-  const ScreenSignUpData({super.key});
+  const ScreenSignUpData({super.key, this.worker});
+  final Map<String, dynamic>? worker;
 
   @override
   State<ScreenSignUpData> createState() => _ScreenSignUpState();
@@ -152,6 +155,18 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
                     return;
                   }
                   try {
+                    if (widget.worker != null) {
+                      CollectionReference collectionRef =
+                          FirebaseFirestore.instance.collection('Worker');
+                      final id = widget.worker?['id'];
+                      final resultReference =
+                          await collectionRef.where('id', isEqualTo: id).get();
+                      final results = resultReference.docs;
+                      Future.forEach(results, (result) {
+                        print(result);
+                        result.reference.delete();
+                      });
+                    }
                     CollectionReference workers =
                         FirebaseFirestore.instance.collection('Worker');
                     await workers.add({
@@ -163,6 +178,8 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
                       // "description": description,
                       "work": _selectedWork,
                     });
+                    await Provider.of<WorkerProvider>(context, listen: false)
+                        .getWorkers();
                   } on FirebaseException catch (_) {
                     //  print(e.message);
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -177,7 +194,7 @@ class _ScreenSignUpState extends State<ScreenSignUpData> {
                             "Couldn't add data, please try again later. ")));
                   }
                   Navigator.pushNamedAndRemoveUntil(
-                      context, '/workcategory', (route) => false);
+                      context, '/home', (route) => false);
                 },
                 child: const Text('Create Profile'),
               ),
