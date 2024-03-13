@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
 
-class ScreenSplash extends StatelessWidget {
+class ScreenSplash extends StatefulWidget {
   const ScreenSplash({super.key});
+
+  @override
+  State<ScreenSplash> createState() => _ScreenSplashState();
+}
+
+class _ScreenSplashState extends State<ScreenSplash> {
+  @override
+  void initState() {
+    // precacheImage(AssetImage('assets/img/logo.jpg'), context);
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.pushReplacementNamed(context, '/home');
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,22 +54,9 @@ class ScreenSplash extends StatelessWidget {
                 color: Colors.blue,
               ),
             ),
-            const SizedBox(height: 130.0),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  '/home',
-                );
-              },
-              child: const Text(
-                'Get Started',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(233, 4, 109, 188),
-                ),
-              ),
+            const SizedBox(height: 50),
+            const CircularProgressIndicator(
+              color: Colors.blue,
             ),
           ],
         ),
