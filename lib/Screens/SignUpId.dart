@@ -37,7 +37,7 @@ class ScreenSignUpId extends StatelessWidget {
                 height: 200,
                 width: 200,
                 child: Image.asset(
-                    'C:/Users/ASUS/OneDrive/Desktop/workFinder/lib/Assets/img/logo.jpg'), // Replace with your image
+                    'assets/img/logo.jpg'), // Replace with your image
               ),
               const SizedBox(height: 60.0),
               // Existing email and password fields

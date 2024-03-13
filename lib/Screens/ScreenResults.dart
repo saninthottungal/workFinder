@@ -65,8 +65,8 @@ class _ScreenResultsState extends State<ScreenResults> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                         const CircleAvatar(
-                             backgroundColor: Color.fromARGB(233, 4, 109, 188),
+                          const CircleAvatar(
+                            backgroundColor: Color.fromARGB(233, 4, 109, 188),
                             radius: 32,
                             child: Icon(
                               Icons.person_outlined,
@@ -81,7 +81,7 @@ class _ScreenResultsState extends State<ScreenResults> {
                               children: [
                                 Text(
                                   widget.workersList[index]['name'],
-                                  style:const TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 17,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
@@ -89,27 +89,25 @@ class _ScreenResultsState extends State<ScreenResults> {
                                 ),
                                 Text(
                                   widget.workersList[index]['phone'],
-                                  style:const TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(
-                                        255, 126, 126, 126),
+                                    color: Color.fromARGB(255, 126, 126, 126),
                                   ),
                                 ),
                                 Text(
                                   widget.workersList[index]['place'],
-                                  style:const TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(
-                                        255, 126, 126, 126),
+                                    color: Color.fromARGB(255, 126, 126, 126),
                                   ),
                                 ),
                               ],
                             ),
                           ),
                           IconButton(
-                            icon:const Icon(
+                            icon: const Icon(
                               Icons.call,
                               size: 32,
                               color: Color.fromARGB(255, 0, 164, 5),
@@ -125,7 +123,7 @@ class _ScreenResultsState extends State<ScreenResults> {
                       ),
                     ),
                   ),
-                 const SizedBox(height: 4),
+                  const SizedBox(height: 4),
                 ],
               );
             },

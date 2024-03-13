@@ -49,6 +49,7 @@ dev_dependencies:
 #   image_path: "assets/img/logo.jpg"
 
 
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
@@ -58,9 +59,10 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  # To add assets to your application, add an assets section, like this:
+
   assets:
-    - 'C:/Users/ASUS/OneDrive/Desktop/workFinder/lib/Assets/img/logo.jpg'
+    - assets/img/logo.jpg
+  # To add assets to your application, add an assets section, like this:
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

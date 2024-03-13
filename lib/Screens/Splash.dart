@@ -19,14 +19,11 @@ class ScreenSplash extends StatelessWidget {
                 color: Colors.white,
               ),
               child: const Image(
-                image: AssetImage(
-                    'C:/Users/ASUS/OneDrive/Desktop/workFinder/lib/Assets/img/logo.jpg'
-                    ),
+                image: AssetImage('assets/img/logo.jpg'),
                 height: 300,
                 width: 300,
               ),
             ),
-
             const Text(
               '"Find the right worker.',
               style: TextStyle(
@@ -43,12 +40,13 @@ class ScreenSplash extends StatelessWidget {
                 color: Colors.blue,
               ),
             ),
-            const SizedBox(
-                height: 130.0),
+            const SizedBox(height: 130.0),
             TextButton(
               onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(
-                    context, '/home', (route) => false);
+                Navigator.pushNamed(
+                  context,
+                  '/home',
+                );
               },
               child: const Text(
                 'Get Started',

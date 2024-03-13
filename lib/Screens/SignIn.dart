@@ -40,8 +40,7 @@ class ScreenSignIn extends StatelessWidget {
               Container(
                 height: 200,
                 width: 200,
-                child: Image.asset(
-                    'C:/Users/ASUS/OneDrive/Desktop/workFinder/lib/Assets/img/logo.jpg'), 
+                child: Image.asset('assets/img/logo.jpg'),
               ),
               const SizedBox(height: 60.0),
               TextField(

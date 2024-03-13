@@ -30,7 +30,7 @@ class ScreenHome extends StatelessWidget {
                 height: 300,
                 width: 300,
                 child: Image.asset(
-                    'C:/Users/ASUS/OneDrive/Desktop/workFinder/lib/Assets/img/logo.jpg'), // Replace with your image
+                    'assets/img/logo.jpg'), // Replace with your image
               ),
               const SizedBox(height: 150.0),
               SizedBox(
