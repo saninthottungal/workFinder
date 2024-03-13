@@ -116,7 +116,7 @@ class _ScreenResultsState extends State<ScreenResults> {
                               String phone =
                                   '+91${widget.workersList[index]['phone']}';
                               Uri phoneUri = Uri(scheme: 'tel', path: phone);
-                              await launchUrl(phoneUri);
+                              await makeCall(phoneUri);
                             },
                           ),
                         ],
@@ -134,9 +134,9 @@ class _ScreenResultsState extends State<ScreenResults> {
   }
 
   // Function to launch URL
-  Future<void> launchUrl(Uri uri) async {
-    if (await canLaunch(uri.toString())) {
-      await launch(uri.toString());
+  Future<void> makeCall(Uri uri) async {
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
     } else {
       throw 'Could not launch ${uri.toString()}';
     }
