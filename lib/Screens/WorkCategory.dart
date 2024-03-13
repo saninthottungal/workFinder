@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sidsproject/Providers/WorkerProvider.dart';
 import 'package:sidsproject/Screens/ScreenResults.dart';
 
 class ScreenWorkCategory extends StatefulWidget {
@@ -79,12 +81,12 @@ class _ScreenWorkCategoryState extends State<ScreenWorkCategory> {
                       onTap: () async {
                         workersList = [];
                         workCategory = workCategories[index];
-                        final workersQuery = await FirebaseFirestore.instance
-                            .collection('Worker')
-                            .get()
-                            .then((value) => value);
+
                         final workers =
-                            workersQuery.docs.map((doc) => doc.data());
+                            Provider.of<WorkerProvider>(context, listen: false)
+                                .workersList;
+                        print(workers);
+
                         await Future.forEach(workers, (worker) {
                           if (worker['work'] == workCategory) {
                             workersList.add(worker);

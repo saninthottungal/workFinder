@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
@@ -26,7 +27,7 @@ class ScreenHome extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 50.0),
-              Container(
+              SizedBox(
                 height: 300,
                 width: 300,
                 child: Image.asset(

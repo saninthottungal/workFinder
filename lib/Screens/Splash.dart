@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sidsproject/Providers/WorkerProvider.dart';
 
 class ScreenSplash extends StatefulWidget {
   const ScreenSplash({super.key});
@@ -11,7 +13,7 @@ class _ScreenSplashState extends State<ScreenSplash> {
   @override
   void initState() {
     // precacheImage(AssetImage('assets/img/logo.jpg'), context);
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, '/home');
     });
     super.initState();
@@ -19,6 +21,7 @@ class _ScreenSplashState extends State<ScreenSplash> {
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<WorkerProvider>(context, listen: false).getWorkers();
     return Scaffold(
       backgroundColor: Colors.white, // Set background color to white
       body: Center(

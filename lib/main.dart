@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sidsproject/Providers/WorkerProvider.dart';
 import 'package:sidsproject/Screens/Home.dart';
 import 'package:sidsproject/Screens/SignIn.dart';
 import 'package:sidsproject/Screens/SignUpData.dart';
@@ -20,16 +22,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(primaryColor: const Color.fromARGB(233, 4, 109, 188)),
-      home: const ScreenSplash(),
-      routes: {
-        '/home': (context) => const ScreenHome(),
-        '/signin': (context) => ScreenSignIn(),
-        '/signupdata': (context) => const ScreenSignUpData(),
-        '/signupid': (context) => ScreenSignUpId(),
-        '/workcategory': (context) => const ScreenWorkCategory(),
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => WorkerProvider())
+      ],
+      child: MaterialApp(
+        theme: ThemeData(primaryColor: const Color.fromARGB(233, 4, 109, 188)),
+        home: const ScreenSplash(),
+        routes: {
+          '/home': (context) => const ScreenHome(),
+          '/signin': (context) => ScreenSignIn(),
+          '/signupdata': (context) => const ScreenSignUpData(),
+          '/signupid': (context) => ScreenSignUpId(),
+          '/workcategory': (context) => const ScreenWorkCategory(),
+        },
+      ),
     );
   }
 }
